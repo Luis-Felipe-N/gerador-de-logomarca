@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @media (max-width: 1080px) {
+            html {
+                font-size: 93.75%;
+            }
+        }
+        
+        @media (max-width: 720px) {
+            html {
+                font-size: 87.5%;
+            }
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+
+            font-family: 'DM Sans', sans-serif;
+
+            background-color: rgb(0 133 119 / 7%);
+        }
+
+        main {
+            max-width: 1300px;
+            display: flex;
+            gap: 3rem;
+        }
+
+        .resultado {
+
+        }
+
+        .resultado-header div button, .opcoes-header div a {
+            padding: 0 1.5rem;
+            border-radius: 2.5rem;
+            background: #004A80;
+            color: #fff;
+            height: 2.5rem;
+            line-height: 2.5rem;
+            display: inline-block;
+            border: 0;
+
+            cursor: pointer;
+        }
+
+        .resultado-container, .lista-imagens {
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .resultado-container img{
+            max-width: 100%;
+            height: 400px;
+            display: none;
+        }
+
+        .resultado-container canvas {
+            height: 400px;
+
+        }
+
+        .lista-imagens {
+            display: flex;
+            gap: 1rem;
+        }
+        .lista-imagens li {
+            list-style: none;
+            border-radius: 70px;
+            overflow: hidden;
+            width: 70px;
+            height: 70px;
+        }
+        .lista-imagens li img {
+            width: 70px;
+            width: 70px;
+            object-fit: cover;
+        }
+
+        .sigla {
+            width: 100%;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .sigla label {
+            
+        }
+
+        .sigla input {
+            display: block;
+            height: 3rem;
+            width: 100%;
+
+            border-radius: 5px;
+            border: 2px solid #393939;
+            padding-inline: 1rem;
+
+            font-size: 1rem;
+
+            margin-top: .5rem;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div>
+            <div class="resultado">
+                <header class="resultado-header">
+                    <h1>Gerador de logomarca</h1>
+                    <div>
+                        <button id="downloadImagem">Baixar está versão</button>
+                    </div>
+                </header>
+                <div class="resultado-container">
+                    <img src="images/logo-0.png" alt="">
+                    <canvas id="canvas"></canvas>
+                </div>
+            </div>
+    
+            <div class="sigla">
+                <label>
+                    Sigla
+                    <input id="inputDaSigla" type="text">
+                </label>
+            </div>
+        </div>
+
+        <div>
+            <header class="opcoes-header">
+                <h1>Opcões</h1>
+                <div>
+                    <a download href="">Baixar todas versão</a>
+                </div>
+            </header>
+
+            <ul class="lista-imagens">
+                
+            </ul>
+        </div>
+
+    </main>
+
+    <script>
+            const containerImagens = document.querySelector('.lista-imagens')
+            const listaImagens = [{
+                nome: '',
+                url: 'images/logo-0.png',
+                cor: 'black'
+            }, {
+                nome: '',
+                url: 'images/logo-1.png',
+                cor: 'white'
+            }, {
+                nome: '',
+                url: 'images/logo-1.png',
+                cor: 'blue'
+            }, {
+                nome: '',
+                url: 'images/logo-1.png',
+                cor: 'blue'
+            }]
+
+            let imagemSelecionada = 0
+
+            listaImagens.forEach((imagem, index) => {
+                const liElement = document.createElement('li')
+                liElement.setAttribute('data-index', index)
+
+                const imgElement = document.createElement('img')
+                imgElement.setAttribute('src', imagem.url)
+
+                liElement.append(imgElement)
+
+                liElement.addEventListener('click', mudarImagemPrincipal)
+
+                containerImagens.append(liElement)
+            })
+
+            const inputDaSigla = document.querySelector('#inputDaSigla')
+            inputDaSigla.addEventListener('input', (e) => escreverNaImagem(e.target.value))
+
+            const btnDownloadImagem = document.querySelector('#downloadImagem')
+            btnDownloadImagem.addEventListener('click', (e) => downloadImagem(imagemSelecionada))
+
+            function mudarImagemPrincipal(event) {
+                const indexImagem = event.currentTarget.getAttribute('data-index')
+                const imagemResultado = document.querySelector('.resultado-container img')
+                imagemSelecionada = indexImagem
+
+                imagemResultado.src = listaImagens[indexImagem].url
+
+                escreverNaImagem(inputDaSigla.value)
+            }
+        
+            function escreverNaImagem(texto) {
+                const imageParaEscrever = document.querySelector('.resultado-container img')
+                const corDaImagem = listaImagens[imagemSelecionada].cor
+
+                const canvas = document.getElementById('canvas'),
+                ctx = canvas.getContext('2d');
+                canvas.width = imageParaEscrever.width;
+                canvas.crossOrigin = "Anonymous";
+                canvas.height = imageParaEscrever.height;
+                ctx.drawImage(imageParaEscrever, 0, 0, imageParaEscrever.width, imageParaEscrever.height);
+                ctx.font = "150px DM Sans";
+
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                ctx.drawImage(imageParaEscrever, 0, 0, imageParaEscrever.width, imageParaEscrever.height);
+                
+                // ESCREVENDO O TEXTO NA IMAGEM
+                ctx.fillStyle = corDaImagem;
+                
+                ctx.textAlign = "center";
+                ctx.fillText(texto,canvas.width / 2 ,canvas.height / 1.35 );
+            }
+
+            function downloadImagem(imageIndex) {
+                console.log('shoi')
+                const canvas = document.getElementById('canvas')
+                var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream")
+                
+
+                var a = document.createElement('a');
+                a.href = image;
+                a.download = 'Logo-UFT.png';
+                document.body.appendChild(a);
+                a.click();
+            }
+
+            escreverNaImagem('')
+
+    </script>
+</body>
+</html>
