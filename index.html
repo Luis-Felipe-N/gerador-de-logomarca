@@ -51,7 +51,7 @@
 
         }
 
-        .resultado-header div button, .opcoes-header div a {
+        .btnDownloadImagem, .opcoes-header div a {
             padding: 0 1.5rem;
             border-radius: 2.5rem;
             background: #004A80;
@@ -60,6 +60,7 @@
             line-height: 2.5rem;
             display: inline-block;
             border: 0;
+            margin-top: .5rem;
 
             cursor: pointer;
         }
@@ -73,6 +74,8 @@
             max-width: 100%;
             height: 400px;
             display: none;
+            visibility: hidden;
+            
         }
 
         .resultado-container canvas {
@@ -82,6 +85,7 @@
 
         .lista-imagens {
             display: flex;
+            flex-wrap: wrap;
             gap: 1rem;
         }
         .lista-imagens li {
@@ -92,10 +96,34 @@
             height: 70px;
         }
         .lista-imagens li img {
-            width: 70px;
-            width: 70px;
-            object-fit: cover;
+            width: 100%;
+            width: 100%;
+            object-fit: contain;
         }
+
+        .tamnhadoDaFonte {
+            margin-top: 2rem;
+        }
+        
+        .tamnhadoDaFonte label {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            margin-right: 2rem;
+            gap: .5rem;
+        }
+        
+        .tamnhadoDaFonte label input:first-child {
+            margin-left: 2rem;
+        }
+
+        .tamnhadoDaFonte input {
+            height: 2rem;
+            padding: 0 1rem;
+            max-width: 100px;
+            border: none;
+        }
+
 
         .sigla {
             width: 100%;
@@ -127,10 +155,7 @@
         <div>
             <div class="resultado">
                 <header class="resultado-header">
-                    <h1>Gerador de logomarca</h1>
-                    <div>
-                        <button id="downloadImagem">Baixar está versão</button>
-                    </div>
+                    <h1>Logo+</h1>
                 </header>
                 <div class="resultado-container">
                     <img src="images/logo-0.png" alt="">
@@ -150,13 +175,24 @@
             <header class="opcoes-header">
                 <h1>Opcões</h1>
                 <div>
-                    <a download href="">Baixar todas versão</a>
+                    <!-- <a download href="">Baixar todas versão</a> -->
                 </div>
             </header>
 
             <ul class="lista-imagens">
                 
             </ul>
+
+            <div class="tamnhadoDaFonte">
+                <label>
+                    Fonte
+                    <input id="tamanhoDaFonte" type="number" value="60">
+                </label>
+            </div>
+
+            <div>
+                <button class="btnDownloadImagem" id="downloadImagem">Baixar</button>
+            </div>
         </div>
 
     </main>
@@ -170,18 +206,31 @@
             }, {
                 nome: '',
                 url: 'images/logo-1.png',
+                cor: '#004A80'
+            }, {
+                nome: '',
+                url: 'images/logo-2.png',
                 cor: 'white'
             }, {
                 nome: '',
-                url: 'images/logo-1.png',
-                cor: 'blue'
+                url: 'images/logo-3.png',
+                cor: '#004A80'
             }, {
                 nome: '',
-                url: 'images/logo-1.png',
-                cor: 'blue'
+                url: 'images/logo-4.png',
+                cor: 'white'
+            }, {
+                nome: '',
+                url: 'images/logo-5.png',
+                cor: 'white'
+            }, {
+                nome: '',
+                url: 'images/logo-6.png',
+                cor: 'white'
             }]
 
             let imagemSelecionada = 0
+            let fonte = 60
 
             listaImagens.forEach((imagem, index) => {
                 const liElement = document.createElement('li')
@@ -196,12 +245,6 @@
 
                 containerImagens.append(liElement)
             })
-
-            const inputDaSigla = document.querySelector('#inputDaSigla')
-            inputDaSigla.addEventListener('input', (e) => escreverNaImagem(e.target.value))
-
-            const btnDownloadImagem = document.querySelector('#downloadImagem')
-            btnDownloadImagem.addEventListener('click', (e) => downloadImagem(imagemSelecionada))
 
             function mudarImagemPrincipal(event) {
                 const indexImagem = event.currentTarget.getAttribute('data-index')
@@ -223,7 +266,7 @@
                 canvas.crossOrigin = "Anonymous";
                 canvas.height = imageParaEscrever.height;
                 ctx.drawImage(imageParaEscrever, 0, 0, imageParaEscrever.width, imageParaEscrever.height);
-                ctx.font = "150px DM Sans";
+                ctx.font = `700 ${fonte}pt DM Sans`;
 
                 ctx.clearRect(0,0,canvas.width,canvas.height);
                 ctx.drawImage(imageParaEscrever, 0, 0, imageParaEscrever.width, imageParaEscrever.height);
@@ -232,24 +275,35 @@
                 ctx.fillStyle = corDaImagem;
                 
                 ctx.textAlign = "center";
-                ctx.fillText(texto,canvas.width / 2 ,canvas.height / 1.35 );
+                ctx.fillText(texto,canvas.width / 2 ,canvas.height / 1.30 );
             }
 
             function downloadImagem(imageIndex) {
-                console.log('shoi')
                 const canvas = document.getElementById('canvas')
                 var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream")
                 
 
                 var a = document.createElement('a');
                 a.href = image;
-                a.download = 'Logo-UFT.png';
+                a.download = `Logo-${inputDaSigla.value.replaceAll(' ', '_')}.png`;
                 document.body.appendChild(a);
                 a.click();
             }
 
-            escreverNaImagem('')
+            const inputDaSigla = document.querySelector('#inputDaSigla')
+            inputDaSigla.addEventListener('input', (e) => escreverNaImagem(e.target.value))
 
+            const btnDownloadImagem = document.querySelector('#downloadImagem')
+            btnDownloadImagem.addEventListener('click', (e) => downloadImagem(imagemSelecionada))
+
+            const tamanhoDaFonte = document.querySelector('#tamanhoDaFonte')
+            tamanhoDaFonte.addEventListener('input', (e) => {
+                fonte = e.target.value
+                escreverNaImagem(inputDaSigla.value)
+            })
+
+            document.onloadeddata = escreverNaImagem('')
     </script>
 </body>
 </html>
+
