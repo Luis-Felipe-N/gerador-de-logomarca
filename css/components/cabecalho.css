@@ -1,0 +1,30 @@
+.cabecalho {
+    padding: 20px 5%;
+    background-color: var(--color-primary);
+
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    color: var(--color-primary-100);
+}
+
+.cabecalho nav {
+    display: flex;
+    align-items: center;
+}
+
+.cabecalho nav ul {
+    display: flex;
+
+    gap: 1rem;
+    font-weight: 600;
+    list-style: none;
+
+    
+}
+
+.cabecalho nav ul li a{
+    color: var(--color-primary-100);
+    text-decoration: none;
+}

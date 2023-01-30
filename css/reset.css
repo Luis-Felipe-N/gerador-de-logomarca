@@ -1,0 +1,48 @@
+
+/* CORES SEGUINDO O PADRÃO DE DESIGN DA UFT */
+/* https://docs.uft.edu.br/share/proxy/alfresco-noauth/api/internal/shared/node/VNuVnM4YT6SWvEPQ94y35g/content/Manual%20de%20Identidade%20Visual%20UFT.pdf */
+:root {
+    --color-primary:     #004A80;
+    --color-primary-900: #00101c;
+    --color-primary-800: #003155;
+    --color-primary-700: #00528e;
+    --color-primary-600: #0073c6;
+    --color-primary-500: #0093ff;
+    --color-primary-400: #39abff;
+    --color-primary-300: #71c3ff;
+    --color-primary-200: #aadbff;
+    --color-primary-100: #f5faff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1080px) {
+    html {
+        font-size: 93.75%;
+    }
+}
+
+@media (max-width: 720px) {
+    html {
+        font-size: 87.5%;
+    }
+}
+
+@media (max-width: 730px) {
+    main {
+        flex-direction: column;
+    }
+}
+
+body {
+    place-items: center;
+
+    font-family: 'DM Sans', sans-serif;
+
+    background-color: var(--color-primary-100);
+    color: var(--color-primary-800);
+}

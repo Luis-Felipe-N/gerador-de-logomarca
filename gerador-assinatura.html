@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/gerador-assinatura.css">
+    
+    <link rel="stylesheet" href="css/components/cabecalho.css">
+    <link rel="stylesheet" href="css/components/hero.css">
+
+    <title>Gerador de Avatar</title>
+</head>
+<body>
+    <header class="cabecalho">
+        <h1>eGerador</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="">Gerador de assinatura</a>
+                </li>
+                <li>
+                    <a href="">Gerador de avatar</a>
+                </li>
+                <!-- <li></li> -->
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <h1>Gerador de avatar</h1>
+    </section>
+    <main class="hero-container">
+        <div>
+            <div class="container-avatar">
+                <div>
+                    <div class="resultado">
+                        <div class="resultado-container">
+                            <img src="images/logo-0.png" alt="">
+                            <canvas id="canvas"></canvas>
+                        </div>
+                    </div>
+            
+                    <div class="sigla">
+                        <label>
+                            Sigla
+                            <input id="inputDaSigla" type="text">
+                        </label>
+                    </div>
+                </div>
+        
+                <div>
+                    <header class="opcoes-header">
+                        <h1>Opcões</h1>
+                        <div>
+                            <!-- <a download href="">Baixar todas versão</a> -->
+                        </div>
+                    </header>
+        
+                   <div>
+                    <ul class="lista-imagens">
+                        
+                    </ul>
+        
+                    <div class="tamnhadoDaFonte">
+                        <label>
+                            Fonte
+                            <input id="tamanhoDaFonte" type="number" value="60">
+                        </label>
+                    </div>
+                   </div>
+        
+                    <div>
+                        <button class="btnDownloadImagem" id="downloadImagem">Baixar avatar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/gerador-assinatura.js"></script>
+</body>
+</html>
+
