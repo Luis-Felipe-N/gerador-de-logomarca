@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/gerador-assinatura.css">
+    
+    <link rel="stylesheet" href="css/components/cabecalho.css">
+    <link rel="stylesheet" href="css/components/hero.css">
+
+    <title>Gerador de Avatar</title>
+</head>
+<body>
+    <header class="cabecalho">
+        <h1>eGerador</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="gerador-assinatura-individual.html">Gerador de assinatura</a>
+                </li>
+                <li>
+                    <a href="gerador-avatar.html">Gerador de avatar</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <h1>Gerador de avatar</h1>
+    </section>
+    <main class="hero-container">
+        <div>
+            <div class="row">
+                <div class="col">
+                    <div id="assinatura">
+                        <table width="auto" cellspacing="0" cellpadding="4"
+                            style="font: small/1.5 Arial,Helvetica,sans-serif;background-color: inherit;">
+                            <tbody>
+                                <tr>
+                                    <td width="121" valign="top"
+                                        style="border:none;padding:0cm;text-align:center;vertical-align:middle">
+                                        <img src="https://docs.uft.edu.br/share/proxy/alfresco-noauth/api/internal/shared/node/CyCn0-KpTCyWT5x_P-qHvQ/content/marcaUFT_vertical_fundotransparente_RGB.png"
+                                            height="65">
+                                    </td>
+                                    <td width="auto"
+                                        style="border-top:none;border-bottom:none;border-left:1px solid rgb(0,0,0);border-right:none;padding:0 0 0 10px">
+                                        <strong><span id="mnome">Rafael Soares</span></strong><br>
+                                        <span class='informacao' id="mcargo">Estagiário</span><br>
+                                        <span class='informacao' id="memail">soares.lopes@mail.uft.edu.br</span><br>
+                                        <span class='informacao' id="mlotacao">Fábrica de Software</span><br>
+                                        <span class='informacao' id="msite"><a href="https://ww2.uft.edu.br//"
+                                                target="blank">https://ww2.uft.edu.br//</a></span> 
+                                        <span class='informacao' id="mtelefone"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                    <button type="button" class="btn btn-primary" onclick="copiarAssinatura()">Copiar assinatura</button>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 30rem;">
+                        <div class="card-body">
+                            <h4>Crie sua assinatura:</h4>
+                            <form>
+                                <!-- 2 column grid layout with text inputs for the first and last names -->
+                                <div class="row mb-4">
+                                    <div class="col">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="nome">Nome</label>
+                                            <input id="nome" class='form-control' type="textarea" for="mnome"
+                                                placeholder="Nome completo">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="nome">Cargo</label>
+                                            <input class='form-control campoAssinatura' type="text" for="mcargo"
+                                                placeholder="Ex: Desenvolvedor">
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <!-- Text input -->
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="email">Email</label>
+                                    <input class='form-control campoAssinatura' type="email" for="memail"
+                                        placeholder="protic@uft.edu.br">
+    
+                                </div>
+    
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="lotacao">Lotação</label>
+                                    <input class='form-control campoAssinatura' type="text" for="mlotacao"
+                                        placeholder="DSD - Diretoria de Soluções Digitais">
+                                </div>
+    
+                                <!-- Email input -->
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="site">Site</label>
+                                    <input class='form-control' type="text" for="msite" placeholder="www.uft.edu.br">
+                                </div>
+    
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="telefone">Telefone</label>
+                                    <input class='form-control campoAssinatura' type="text" for="mtelefone"
+                                        placeholder="(99) 981088680">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <hr>
+    
+    
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/gerador-assinatura.js"></script>
+</body>
+</html>
+

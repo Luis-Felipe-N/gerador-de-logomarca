@@ -31,6 +31,7 @@ const listaImagens = [{
 
 let imagemSelecionada = 0
 let fonte = 60
+let formatoCircular = true
 
 listaImagens.forEach((imagem, index) => {
     const liElement = document.createElement('li')
@@ -53,6 +54,9 @@ function mudarImagemPrincipal(event) {
 
     imagemResultado.src = listaImagens[indexImagem].url
 
+    containerImagens.querySelectorAll('li').forEach(li => li.classList.remove('active'))
+    event.currentTarget.classList.add('active')
+
     escreverNaImagem(inputDaSigla.value)
 }
 
@@ -60,11 +64,20 @@ function escreverNaImagem(texto) {
     const imageParaEscrever = document.querySelector('.resultado-container img')
     const corDaImagem = listaImagens[imagemSelecionada].cor
 
-    const canvas = document.getElementById('canvas'),
+    const canvas = document.getElementById('canvas')
     ctx = canvas.getContext('2d');
     canvas.width = imageParaEscrever.width;
-    canvas.crossOrigin = "Anonymous";
     canvas.height = imageParaEscrever.height;
+
+    if (formatoCircular) {
+        ctx = canvas.getContext('2d');
+        ctx.arc(canvas.width / 2, canvas.height / 2, canvas.width / 2, 0, 2 * Math.PI); 
+        ctx.clip();
+    } else {
+        ctx.restore();
+    }
+
+    canvas.crossOrigin = "Anonymous";
     ctx.drawImage(imageParaEscrever, 0, 0, imageParaEscrever.width, imageParaEscrever.height);
     ctx.font = `700 ${fonte}pt Raleway`;
 
@@ -88,7 +101,7 @@ function downloadImagem(imageIndex) {
     a.download = `Logo-${inputDaSigla.value.replaceAll(' ', '_')}.png`;
     document.body.appendChild(a);
     a.click();
-}
+} 
 
 const inputDaSigla = document.querySelector('#inputDaSigla')
 inputDaSigla.addEventListener('input', (e) => escreverNaImagem(e.target.value))
@@ -100,6 +113,24 @@ const tamanhoDaFonte = document.querySelector('#tamanhoDaFonte')
 tamanhoDaFonte.addEventListener('input', (e) => {
     fonte = e.target.value
     escreverNaImagem(inputDaSigla.value)
+})
+
+const avatarFormatos = document.querySelectorAll('[data-avatarFormato]')
+avatarFormatos.forEach(formato => {
+    formato.addEventListener('click', (e) => {
+        const formato = e.currentTarget.getAttribute('data-avatarFormato')
+        const textoAtual = inputDaSigla.value
+
+        if (formato == 'quadrado') {
+            formatoCircular = false
+        }
+        
+        if (formato == 'circular') {
+            formatoCircular = true
+        }
+        
+        escreverNaImagem(textoAtual)
+    })
 })
 
 document.onloadeddata = escreverNaImagem('')

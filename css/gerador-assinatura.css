@@ -47,7 +47,8 @@
 
 .resultado-container canvas {
     height: 400px;
-    border-radius: 100%;
+    /* border-radius: 100%; */
+    /* background-color: red */
 }
 
 .lista-imagens {
@@ -67,7 +68,7 @@
     transition: .2s
 }
 
-.lista-imagens li:hover {
+.lista-imagens li:hover, .lista-imagens li.active {
     box-shadow: 0 0 0 2px var(--color-primary-100), 0 0 0 5px var(--color-primary);
 }
 
@@ -81,19 +82,41 @@
     margin-top: 2rem;
 }
 
-.tamnhadoDaFonte label {
+.opcoes-container > div {
+    margin-top: 1rem;
+}
+
+.opcoes .formatos > div {
     display: flex;
-    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.opcoes .formatos > div > div {
+    cursor: pointer;
+}
+
+.opcoes .formatos i {
+    display: block;
+    font-size: 3rem;
+}
+
+.opcoes .formatos span {
+    font-size: .8rem;
+    font-weight: 600;
+}
+
+.opcoes .tamnhadoDaFonte label {
+    display: flex;
+
+    flex-direction: column;
     font-weight: 700;
-    margin-right: 2rem;
+
     gap: .5rem;
 }
 
-.tamnhadoDaFonte label input:first-child {
-    margin-left: 2rem;
-}
-
-.tamnhadoDaFonte input {
+.opcoes .tamnhadoDaFonte input {
     height: 3rem;
     padding: 0 1rem;
     max-width: 100px;
@@ -103,18 +126,17 @@
     border-radius: 5px;
 }
 
-
-.sigla {
+.opcoes .sigla {
     width: 100%;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
-.sigla label {
+.opcoes .sigla label {
     font-weight: 600;
 }
 
-.sigla input {
+.opcoes .sigla input {
     display: block;
     height: 3rem;
     width: 100%;
