@@ -57,10 +57,12 @@
                                     </td>
                                     <td width="auto"
                                         style="border-top:none;border-bottom:none;border-left:1px solid rgb(0,0,0);border-right:none;padding:0 0 0 10px">
-                                        <strong><span id="mnome">Nome</span></strong><br>
-                                        <span class='informacao' id="mcargo">Cargo | Função</span><br>
-                                        <span class='informacao' id="munidade">Nome da Unidade Específica de Lotação por Extenso (SIGLA)</span><br>
-                                        <span class='informacao' id="mmacrosetor">Nome da Pró-Reitoria, Câmpus ou Macrossetor (SIGLA)</span><br>
+                                        <strong>
+                                            <span class='informacao' id="munidade">Nome da Unidade Específica de Lotação por Extenso (SIGLA)</span>
+                                        </strong>
+                                        <br>
+                                        <span class='informacao' id="mmacrosetor">Nome da Pró-Reitoria, Câmpus ou Macrossetor (SIGLA)</span>
+                                        <br>
                                         <span class='informacao'>
                                             <a id="msite" href="https://ww2.uft.edu.br//" target="blank">https://ww2.uft.edu.br/xxx</a>
                                         </span> 
@@ -70,7 +72,7 @@
                                         <span class='informacao'>
                                             <a id="mlink1" href="https://lattes.cnpq.br/" target="blank">Currículo Lattes</a>
                                         </span> 
-                                        <span style="border-left: 1px solid; padding-left: .2rem;" class='informacao' id="mlink2">
+                                        <span style="border-left: 1px solid; padding-left: .2rem;" class='informacao'>
                                             <a id="mlink2" href="https://br.linkedin.com/" target="blank">Linkedin</a>
                                         </span>
                                     </td>
@@ -83,24 +85,6 @@
                 <div class="form">
                     <h2 class="titulo">Crie sua assinatura</h2>
                     <form>
-                        <!-- 2 column grid layout with text inputs for the first and last names -->
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-outline">
-                                    <label class="form-label" for="nome">Tít. Acad. e/ou Desig. Prof. Nome Sobrenome</label>
-                                    <input id="nome" class='form-control' type="textarea" for="mnome"
-                                        placeholder="Tít. Acad. e/ou Desig. Prof. Nome Sobrenome">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-outline">
-                                    <label class="form-label" for="cargo">Cargo</label>
-                                    <input class='form-control campoAssinatura' id="cargo" type="text" for="mcargo"
-                                        placeholder="Cargo | Função">
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="form-outline">
                             <label class="form-label" for="unidade">Lotação</label>
                             <input class='form-control campoAssinatura' id="unindade" type="text" for="munidade"
@@ -134,13 +118,13 @@
                         </div>
                         <div class="form-group">
                             <div class="form-outline">
-                                <label class="form-label" for="telefone">Link 1</label>
+                                <label class="form-label" for="mlink2">Link 1</label>
                                 <input class='form-control campoAssinatura' type="url" for="mlink1"
                                     placeholder="https://lattes.cnpq.br/me">
                             </div>
 
                             <div class="form-outline">
-                                <label class="form-label" for="telefone">Link 2</label>
+                                <label class="form-label" for="mlink2">Link 2</label>
                                 <input class='form-control campoAssinatura' type="url" for="mlink2"
                                     placeholder="https://www.linkedin.com/in/me">
                             </div>

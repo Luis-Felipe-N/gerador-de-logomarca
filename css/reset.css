@@ -46,3 +46,7 @@ body {
     background-color: var(--color-primary-100);
     color: var(--color-primary-800);
 }
+
+.texto-branco {
+    color: var(--color-primary-100);
+}
