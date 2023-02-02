@@ -14,6 +14,14 @@ document.querySelectorAll('form').forEach(input => {
             document.querySelector(`#${to}`).href = url
         }
 
+        if (e.target.type == 'tel' || to == "mlink2") {
+            if (texto) {
+                texto = "| " + texto
+            } else {
+                texto = ""
+            }
+        }
+
         document.querySelector(`#${to}`).textContent = texto
     })
 })
@@ -39,3 +47,4 @@ function addTextWrap() {
         }
     }
 }
+

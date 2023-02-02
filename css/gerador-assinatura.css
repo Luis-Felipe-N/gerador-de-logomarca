@@ -45,6 +45,7 @@
 .form-group {
     display: flex;
     gap: 1rem;
+    width: 100%;
 }
 
 .form-outline {
@@ -75,8 +76,9 @@
     font-size: 1rem;
 }
 
-@media (max-width: 730px) {
-    .container-avatar {
-        grid-template-columns: 1fr;
+@media (max-width: 1138px) {
+    .container, .form-group {
+        flex-direction: column;
     }
+
 }
