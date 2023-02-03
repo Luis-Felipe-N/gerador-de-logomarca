@@ -79,19 +79,19 @@ function escreverNaImagem(texto) {
 
     canvas.crossOrigin = "Anonymous";
     ctx.drawImage(imageParaEscrever, 0, 0, imageParaEscrever.width, imageParaEscrever.height);
-    ctx.font = `700 ${fonte}pt Raleway`;
-
     ctx.clearRect(0,0,canvas.width,canvas.height);
     ctx.drawImage(imageParaEscrever, 0, 0, imageParaEscrever.width, imageParaEscrever.height);
     
     // ESCREVENDO O TEXTO NA IMAGEM
+    ctx.font = `700 ${fonte}px Raleway`;
+    ctx.textBaseline = "top"
     ctx.fillStyle = corDaImagem;
-    
     ctx.textAlign = "center";
-    ctx.fillText(texto.toUpperCase(),canvas.width / 2 ,canvas.height / 1.30 );
+
+    ctx.fillText(texto.toUpperCase(), canvas.width / 2 , canvas.height / 1.6 );
 }
 
-function downloadImagem(imageIndex) {
+function downloadImagem() {
     const canvas = document.getElementById('canvas')
     var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream")
     

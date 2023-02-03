@@ -22,23 +22,23 @@
 </head>
 <body>
     <header class="cabecalho">
-        <h1>eGerador</h1>
+        <h1>Gera+</h1>
         <nav>
             <ul>
                 <li>
-                    <a href="gerador-avatar.html">Gerador de avatar</a>
+                    <a href="gerador-avatar.html">Avatar</a>
                 </li>
                 <li>
-                    <a href="gerador-assinatura-individual.html">Gerador de assinatura individual</a>
+                    <a href="gerador-assinatura-individual.html">Assinatura Individual</a>
                 </li>
                 <li>
-                    <a href="gerador-assinatura-setorial.html">Gerador de assinatura setorial</a>
+                    <a href="gerador-assinatura-setorial.html">Assinatura Setorial</a>
                 </li>
             </ul>
         </nav>
     </header>
     <section class="hero">
-        <h1>Gerador de assinatura</h1>
+        <h1>Assinatura de email institucional</h1>
         <p class="texto-branco">Padrão de Assinaturas para e-mails institucionais da UFT <a class="texto-branco" href="https://docs.google.com/presentation/d/1t53UNAcY45pbk6BKB6vvhtysDXbcYcbU3iepmz8U6fY/edit#slide=id.g1dbf1931dbc_0_0">aqui.</a></p>
     </section>
     <main class="hero-container">
@@ -52,27 +52,38 @@
                                 <tr>
                                     <td width="121" valign="top"
                                         style="border:none;padding:0cm;text-align:center;vertical-align:middle">
-                                        <img src="https://docs.uft.edu.br/share/proxy/alfresco-noauth/api/internal/shared/node/CyCn0-KpTCyWT5x_P-qHvQ/content/marcaUFT_vertical_fundotransparente_RGB.png"
-                                            height="65">
+                                        <img src="https://docs.uft.edu.br/share/proxy/alfresco-noauth/api/internal/shared/node/CyCn0-KpTCyWT5x_P-qHvQ/content/marcaUFT_vertical_fundotransparente_RGB.png" height="65">
                                     </td>
-                                    <td width="auto"
-                                        style="border-top:none;border-bottom:none;border-left:1px solid rgb(0,0,0);border-right:none;padding:0 0 0 10px">
-                                        <strong><span id="mnome">Nome</span></strong><br>
-                                        <span class='informacao' id="mcargo">Cargo | Função</span><br>
-                                        <span class='informacao' id="munidade">Nome da Unidade Específica de Lotação por Extenso (SIGLA)</span><br>
-                                        <span class='informacao' id="mmacrosetor">Nome da Pró-Reitoria, Câmpus ou Macrossetor (SIGLA)</span><br>
-                                        <span class='informacao'>
-                                            <a id="msite" href="https://ww2.uft.edu.br//" target="blank">www.uft.edu.br/xxx</a>
-                                        </span> 
-                                        <span style="" class='informacao' id="mtelefone1">| 63 0000-0000</span>
-                                        <span style="" class='informacao' id="mtelefone2"></span>
+                                    <td width="auto" style="border-top:none;border-bottom:none;border-left:1px solid rgb(0,0,0);border-right:none;padding:0 0 0 10px">
+                                        <strong style="display: block;">
+                                            <span id="mnome">Nome</span>
+                                        </strong>
+                                        <div>
+                                            <span id="mcargo">Cargo </span>
+                                            <span id="mfuncao"></span>
+                                        </div>
+                                        
+                                        <span style="display: block;" id="munidade">Nome da Unidade Específica de Lotação por Extenso (SIGLA)</span>
+                                        
+                                        <span id="mmacrosetor">Nome da Pró-Reitoria, Câmpus ou Macrossetor (SIGLA)</span>
+
+                                        <span id="mcampus">Campus de Palmas (Sucom)</span>
                                         <br>
-                                        <span class='informacao'>
-                                            <a id="mlink1" href="https://lattes.cnpq.br/" target="blank">Currículo Lattes</a>
+                                        <span>
+                                            <a id="msite" href="https://ww2.uft.edu.br//" target="blank">www.uft.edu.br/xxxxx</a>
                                         </span> 
-                                        <span class='informacao' id="mlink2">
-                                            <a id="mlink2" href="https://br.linkedin.com/" target="blank">| Linkedin</a>
-                                        </span>
+
+                                        <span style="" id="mtelefone1">| 63 0000-0000</span>
+                                        <span style="" id="mtelefone2"></span>
+
+                                        <div>
+                                            <span>
+                                                <a id="mlink1" href="https://lattes.cnpq.br/" target="blank"></a>
+                                            </span> 
+                                            <span>
+                                                <a id="mlink2" href="https://br.linkedin.com/" target="blank"></a>
+                                            </span>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>
@@ -83,66 +94,96 @@
                 <div class="form">
                     <h2 class="titulo">Crie sua assinatura</h2>
                     <form>
-                        <!-- 2 column grid layout with text inputs for the first and last names -->
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-outline">
-                                    <label class="form-label" for="nome">Tít. Acad. e/ou Desig. Prof. Nome Sobrenome</label>
-                                    <input id="nome" class='form-control' type="textarea" for="mnome"
-                                        placeholder="Tít. Acad. e/ou Desig. Prof. Nome Sobrenome">
-                                </div>
-                            </div>
-                            <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="nome">Nome</label>
+                            <input 
+                                id="nome" 
+                                class='form-control' 
+                                type="textarea" 
+                                for="mnome"
+                                placeholder="Tít. Acad. e/ou Desig. Prof. Nome Sobrenome"
+                                required
+                            >
+                            <small>Tít. Acad. e/ou Desig. Prof. Nome Sobrenome</small>
+                        </div>
+
+                        <div class="form-group">
                                 <div class="form-outline">
                                     <label class="form-label" for="cargo">Cargo</label>
-                                    <input class='form-control campoAssinatura' id="cargo" type="text" for="mcargo"
-                                        placeholder="Cargo | Função">
+                                    <input required class='form-control campoAssinatura' id="cargo" type="text" for="mcargo" placeholder="Cargo">
+                                    <small>Cargo</small>
                                 </div>
-                            </div>
+
+                                <div class="form-outline">
+                                    <label class="form-label" for="cargo">Função <small>(opcional)</small></label>
+                                    <input class='form-control campoAssinatura' id="funcao" type="text" for="mfuncao" placeholder="Função">
+                                    <small>Função</small>
+                                </div>
                         </div>
 
                         <div class="form-outline">
-                            <label class="form-label" for="unidade">Lotação</label>
+                            <label class="form-label" for="macrosetor">Suprassetor</label>
+                            <input class='form-control campoAssinatura' id="macrosetor" type="text" for="mmacrosetor" placeholder="Nome da Pró-Reitoria, Câmpus ou Macrossetor (SIGLA)">
+                            <small>Nome da Pró-Reitoria, Câmpus ou Macrossetor (SIGLA)</small>
+                        </div>
+
+                        <div class="form-outline">
+                            <label class="form-label" for="unidade">Setor ou Unidade</label>
                             <input class='form-control campoAssinatura' id="unindade" type="text" for="munidade"
                                 placeholder="Nome da Unidade Específica de Lotação por Extenso (SIGLA)">
-                        </div>
-
+                            <small>Nome da Unidade Específica de Lotação por Extenso (SIGLA)</small>
+                        </div>           
+                        
                         <div class="form-outline">
-                            <label class="form-label" for="macrosetor">Sub-Setor</label>
-                            <input class='form-control campoAssinatura' id="macrosetor" type="text" for="mmacrosetor"
-                                placeholder="Nome da Pró-Reitoria, Câmpus ou Macrossetor (SIGLA)">
-                        </div>
+                            <label class="form-label" for="unidade">Pro-reitorias e Campus</label>
+                            <select class="form-control" for="mcampus">
+                                <option value="Campus de Palmas (Palmas)">Campus de Palmas (Sucom)</option>
+                                <option value="Superintendência de Comunicação (Sucom)">Superintendência de Comunicação (Sucom)</option>
+                            </select>
+                            <small>Nome da Unidade Específica de Lotação por Extenso (SIGLA)</small>
+                        </div>    
 
-                        <!-- Email input -->
                         <div class="form-outline">
                             <label class="form-label" for="site">Site</label>
-                            <input class='form-control' type="url" for="msite" placeholder="www.uft.edu.br/xxx">
+                            <input class='form-control' type="url" for="msite" placeholder="xxxxx">
+                            <small>www.uft.edu.br/<strong>xxxxx</strong></small>
                         </div>
 
                         <div class="form-group">
                             <div class="form-outline">
-                                <label class="form-label" for="telefone1">Telefone principal</label>
+                                <label class="form-label" for="telefone1">Telefone Principal</label>
                                 <input id="telefone1" class='form-control campoAssinatura' type="tel" for="mtelefone1"
                                     placeholder="(99) 981088680">
                             </div>
 
                             <div class="form-outline">
-                                <label class="form-label" for="telefone2">Telefone secundário  <small>(opicional)</small></label>
+                                <label class="form-label" for="telefone2">Telefone Secundário  <small>(opcional)</small></label>
                                 <input id="telefone2" class='form-control campoAssinatura' type="tel" for="mtelefone2"
                                     placeholder="(99) 981088680">
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="form-outline">
-                                <label class="form-label" for="telefone">Link 1  <small>(opicional)</small></label>
-                                <input class='form-control campoAssinatura' type="url" for="mlink1"
-                                    placeholder="https://lattes.cnpq.br/me">
+                                <label class="form-label" for="telefone">Currículo Lattes <small>(opcional)</small></label>
+                                <input 
+                                    class='form-control campoAssinatura'
+                                    type="url"
+                                    for="mlink1"
+                                    placeholder="https://lattes.cnpq.br/me"
+                                    name="Currículo Lattes"
+                                    >
                             </div>
 
                             <div class="form-outline">
-                                <label class="form-label" for="telefone">Link 2  <small>(opicional)</small></label>
-                                <input class='form-control campoAssinatura' type="url" for="mlink2"
-                                    placeholder="https://www.linkedin.com/in/me">
+                                <label class="form-label" for="telefone">Linkedin <small>(opcional)</small></label>
+                                <input 
+                                    class='form-control campoAssinatura' 
+                                    type="url" 
+                                    for="mlink2"
+                                    placeholder="https://www.linkedin.com/in/me" 
+                                    name="Linkedin"
+                                    >
                             </div>
                         </div>
 

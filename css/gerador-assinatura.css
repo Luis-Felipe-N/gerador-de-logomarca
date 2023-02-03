@@ -33,6 +33,11 @@
     flex-direction: column;
     gap: .5rem;
 }
+
+.container .form form .form-outline small {
+    color: rgba(0, 0, 0, 0.671);
+}
+
 .container .form form .form-outline input {
     height: 3rem;
     padding: 0 1rem;
@@ -74,6 +79,16 @@
 
     font-weight: 600;
     font-size: 1rem;
+}
+
+select.form-control {
+    height: 3rem;
+    padding: 0 1rem;
+    border: none;
+    font-size: 1rem;
+    border: 2px solid var(--color-primary-200);
+    border-radius: 5px;
+    background-color: #fff;
 }
 
 @media (max-width: 1138px) {

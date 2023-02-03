@@ -1,22 +1,29 @@
 document.querySelectorAll('form').forEach(input => {
+    console.log(input)
     input.addEventListener('input', (e) => {
         let to = e.target.getAttribute("for")
         let texto = e.target.value
+        const listaIdsBarraLateral = ['mfuncao', 'mlink2']
         
         if (e.target.type == 'url') {
             let url = e.target.value
+            let name = e.target.name
 
             if (to == "msite") {
                 url = "https://ww2.uft.edu.br/" + url
                 texto = "www.uft.edu.br/" + texto
             }
 
+            if (!!name) {
+                texto = texto ? name : texto
+            }
+
             document.querySelector(`#${to}`).href = url
         }
 
-        if (e.target.type == 'tel' || to == "mlink2") {
+        if (e.target.type == 'tel' || listaIdsBarraLateral.includes(to) ) {
             if (texto) {
-                texto = "| " + texto
+                texto = "| " + formatarCelular(texto)
             } else {
                 texto = ""
             }
@@ -38,13 +45,9 @@ function copiarAssinatura() {
     document.execCommand('copy');
 }
 
-
-function addTextWrap() {
-    textCampos = document.getElementsByClassName('informacao')
-    for (var i = 0; i <= 5; i++) {
-        if (textCampos[i].value != '') {
-            textCampos[i].insertAdjacentHTML('afterend', '<br>');
-        }
-    }
+function formatarCelular(texto){
+    texto =texto.replace(/\D/g,"");
+    texto =texto.replace(/^(\d{2})(\d)/g,"($1) $2");
+    texto =texto.replace(/(\d)(\d{4})$/,"$1-$2");
+    return texto;
 }
-
